@@ -101,39 +101,43 @@ export default function Component() {
   return (
     <div className="relative min-h-screen bg-white dark:bg-black text-black dark:text-white font-sans overflow-hidden">
       <div className="relative z-10">
-        <header className="sticky top-0 z-20 bg-white dark:bg-black border-b border-gray-200 dark:border-gray-800">
-          <div className="container mx-auto px-4 py-4 flex justify-between items-center">
+        <header className="sticky top-0 z-20 backdrop-blur-sm bg-white/75 dark:bg-black/75 border-b border-gray-200 dark:border-gray-800">
+          <div className="container mx-auto px-4 py-6 flex justify-between items-center">
             <div className="flex items-center space-x-4">
-              <h1 className="text-xl font-bold">Miguel</h1>
+              <h1 className="text-2xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Miguel</h1>
             </div>
-            <nav className="hidden md:flex space-x-6">
+            <nav className="hidden md:flex space-x-8">
               {['about', 'skills', 'experience', 'personal-projects'].map((section) => (
                 <button
                   key={section}
                   onClick={() => scrollToSection(section)}
-                  className={`text-sm hover:text-gray-600 dark:hover:text-gray-300 transition-colors ${activeSection === section ? 'text-black dark:text-white font-medium' : 'text-gray-600 dark:text-gray-400'
+                  className={`text-sm relative group ${activeSection === section
+                    ? 'text-blue-600 dark:text-blue-400 font-medium'
+                    : 'text-gray-600 dark:text-gray-400'
                     }`}
                 >
                   {section === 'personal-projects' ? 'Personal Projects' : section.charAt(0).toUpperCase() + section.slice(1)}
+                  <span className={`absolute -bottom-2 left-0 w-full h-0.5 bg-blue-600 transform scale-x-0 group-hover:scale-x-100 transition-transform duration-200 ${activeSection === section ? 'scale-x-100' : ''
+                    }`} />
                 </button>
               ))}
             </nav>
-            <div className="flex space-x-2">
+            <div className="flex space-x-4">
               <Link href="mailto:miguel.luque.dev@gmail.com">
-                <Button variant="ghost" size="icon" className="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white">
-                  <Mail className="h-5 w-5" />
+                <Button variant="ghost" size="icon" className="rounded-full hover:bg-blue-100 dark:hover:bg-blue-900/20">
+                  <Mail className="h-5 w-5 text-blue-600 dark:text-blue-400" />
                   <span className="sr-only">Email</span>
                 </Button>
               </Link>
               <Link href="https://github.com/miguelluque" target="_blank" rel="noopener noreferrer">
-                <Button variant="ghost" size="icon" className="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white">
-                  <Github className="h-5 w-5" />
+                <Button variant="ghost" size="icon" className="rounded-full hover:bg-purple-100 dark:hover:bg-purple-900/20">
+                  <Github className="h-5 w-5 text-purple-600 dark:text-purple-400" />
                   <span className="sr-only">GitHub</span>
                 </Button>
               </Link>
               <Link href="https://www.linkedin.com/in/miguel-luque-mu%C3%B1oz-software-developer/" target="_blank" rel="noopener noreferrer">
-                <Button variant="ghost" size="icon" className="text-gray-600 dark:text-gray-400 hover:text-black dark:hover:text-white">
-                  <Linkedin className="h-5 w-5" />
+                <Button variant="ghost" size="icon" className="rounded-full hover:bg-blue-100 dark:hover:bg-blue-900/20">
+                  <Linkedin className="h-5 w-5 text-blue-600 dark:text-blue-400" />
                   <span className="sr-only">LinkedIn</span>
                 </Button>
               </Link>
@@ -148,117 +152,171 @@ export default function Component() {
           </section>
 
           <section id="skills" className="mb-16 pt-16">
-            <h2 className="text-2xl font-bold mb-4">Skills</h2>
-            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-6">
+            <h2 className="text-2xl font-bold mb-8 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Skills</h2>
+            <div className="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-4 gap-8">
               {skills.map((skill) => (
-                <div key={skill.name} className="flex flex-col items-center">
-                  <div className="w-16 h-16 mb-2 bg-white dark:bg-gray-800 rounded-full flex items-center justify-center shadow-md">
+                <div
+                  key={skill.name}
+                  className="group relative flex flex-col items-center p-4 rounded-xl transition-all duration-300 hover:bg-gray-50 dark:hover:bg-gray-900"
+                >
+                  <div className="w-16 h-16 mb-4 bg-white dark:bg-gray-800 rounded-2xl flex items-center justify-center shadow-lg transform transition-transform group-hover:scale-110 group-hover:rotate-3">
                     <Image
                       src={skill.logo}
                       alt={`${skill.name} logo`}
                       width={40}
                       height={40}
+                      className="transition-all duration-300 group-hover:scale-110"
                     />
                   </div>
-                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300">{skill.name}</span>
+                  <span className="text-sm font-medium text-gray-700 dark:text-gray-300 text-center">
+                    {skill.name}
+                  </span>
                 </div>
               ))}
             </div>
           </section>
 
-          <section id="experience" className="mb-16 pt-16">
-            <h2 className="text-2xl font-bold mb-4">Experience</h2>
-            {experience.map((job, index) => (
-              <Card key={index} className="mb-4 p-4 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800">
-                <div className="flex justify-between items-start">
-                  <div>
-                    <h3 className="font-bold text-lg">{job.role}</h3>
-                    <p className="text-gray-600 dark:text-gray-400">{job.company}</p>
-                    <p className="text-gray-500 dark:text-gray-500">{job.location}</p>
-                  </div>
-                  <p className="text-gray-500 dark:text-gray-500">{job.period}</p>
-                </div>
-                <div className="mt-2 flex flex-wrap gap-2">
-                  {job.projects.technologies.map((tech, techIndex) => (
-                    <span
-                      key={techIndex}
-                      className="px-2 py-1 text-xs font-medium bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-full"
-                    >
-                      {tech}
-                    </span>
-                  ))}
-                </div>
-                <Button
-                  variant="ghost"
-                  onClick={() => toggleSection(`job-${index}`)}
-                  className="mt-2 p-0 h-auto font-normal text-gray-500 dark:text-gray-400 hover:text-black dark:hover:text-white"
-                >
-                  {expandedJob === `job-${index}` ? "Hide Projects" : "Show Projects"}
-                  <ChevronDown className={`ml-1 h-4 w-4 transition-transform ${expandedJob === `job-${index}` ? "rotate-180" : ""}`} />
-                </Button>
-                {expandedJob === `job-${index}` && (
-                  <div className="mt-4 space-y-4">
-                    <div className="bg-white dark:bg-gray-800 p-4 rounded-lg shadow">
-                      <h4 className="font-semibold text-lg mb-2">Project</h4>
-                      <p className="text-gray-600 dark:text-gray-300 mb-2">{job.projects.description}</p>
-                      <p className="text-gray-500 dark:text-gray-400 mb-2">Sector: {job.projects.sector}</p>
-                      <h5 className="font-medium text-md mb-2">Responsibilities:</h5>
-                      <ul className="list-disc list-inside mb-2">
-                        {job.projects.responsibilities.map((resp, respIndex) => (
-                          <li key={respIndex} className="text-gray-600 dark:text-gray-300">{resp}</li>
-                        ))}
-                      </ul>
-                    </div>
-                  </div>
-                )}
-              </Card>
-            ))}
-          </section>
+          <section id="experience" className="mb-16 pt-16 relative">
+            <h2 className="text-2xl font-bold mb-8 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">Experience</h2>
+            <div className="relative">
+              {/* Timeline line */}
+              <div className="absolute left-8 top-0 bottom-0 w-0.5 bg-gradient-to-b from-blue-600 to-purple-600" />
 
-          <section id="personal-projects" className="mb-16 pt-16">
-            <h2 className="text-2xl font-bold mb-4">Personal Projects</h2>
-            <div className="grid md:grid-cols-2 gap-6">
-              {projects.map((project, index) => (
-                <Card key={index} className="p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 flex flex-col">
-                  <div className="flex justify-between items-start mb-2">
-                    <h3 className="text-lg font-bold">{project.title}</h3>
-                    {project.inProgress && (
-                      <span className="text-yellow-500 flex items-center text-xs">
-                        <Clock className="h-4 w-4 mr-1" />
-                        In progress
-                      </span>
-                    )}
+              {experience.map((job, index) => (
+                <Card
+                  key={index}
+                  className="mb-8 ml-16 p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 relative transform transition-all duration-300 hover:scale-[1.02] hover:shadow-xl"
+                >
+                  {/* Timeline dot */}
+                  <div className="absolute -left-16 top-8 w-4 h-4 rounded-full bg-gradient-to-r from-blue-600 to-purple-600 shadow-lg" />
+
+                  <div className="flex justify-between items-start">
+                    <div>
+                      <h3 className="font-bold text-xl mb-2">{job.role}</h3>
+                      <p className="text-gray-600 dark:text-gray-400 text-lg">{job.company}</p>
+                      <p className="text-gray-500 dark:text-gray-500 flex items-center gap-2">
+                        <Globe className="h-4 w-4" />
+                        {job.location}
+                      </p>
+                    </div>
+                    <p className="text-gray-500 dark:text-gray-500 font-medium">{job.period}</p>
                   </div>
-                  <div className="flex-grow overflow-auto mb-4" style={{ maxHeight: '100px' }}>
-                    <p className="text-gray-600 dark:text-gray-300">{project.description}</p>
-                  </div>
-                  <div className="flex flex-wrap gap-2 mb-4">
-                    {project.technologies.map((tech, techIndex) => (
+
+                  <div className="mt-4 flex flex-wrap gap-2">
+                    {job.projects.technologies.map((tech, techIndex) => (
                       <span
                         key={techIndex}
-                        className="px-2 py-1 text-xs font-medium bg-gray-200 dark:bg-gray-700 text-gray-800 dark:text-gray-200 rounded-full"
+                        className="px-3 py-1 text-sm font-medium bg-blue-100 dark:bg-blue-900/20 text-blue-800 dark:text-blue-200 rounded-full transition-colors hover:bg-blue-200 dark:hover:bg-blue-800/30"
                       >
                         {tech}
                       </span>
                     ))}
                   </div>
-                  <div className="flex justify-between items-center mt-auto">
-                    <span className="text-sm font-medium text-gray-500 dark:text-gray-400">
-                      Sector: {project.sector}
+
+                  <Button
+                    variant="ghost"
+                    onClick={() => toggleSection(`job-${index}`)}
+                    className="mt-4 text-blue-600 dark:text-blue-400 hover:bg-blue-50 dark:hover:bg-blue-900/20 font-medium"
+                  >
+                    {expandedJob === `job-${index}` ? "Hide Details" : "Show Details"}
+                    <ChevronDown
+                      className={`ml-2 h-4 w-4 transition-transform duration-300 ${expandedJob === `job-${index}` ? "rotate-180" : ""
+                        }`}
+                    />
+                  </Button>
+
+                  {expandedJob === `job-${index}` && (
+                    <div className="mt-6 space-y-4 animate-fadeIn">
+                      <div className="bg-white dark:bg-gray-800 p-6 rounded-xl shadow-lg border border-gray-100 dark:border-gray-700">
+                        <h4 className="font-semibold text-lg mb-4 text-blue-600 dark:text-blue-400">Project Overview</h4>
+                        <p className="text-gray-600 dark:text-gray-300 mb-4 leading-relaxed">{job.projects.description}</p>
+                        <p className="text-gray-500 dark:text-gray-400 mb-4 flex items-center gap-2">
+                          <Globe className="h-4 w-4" />
+                          Sector: {job.projects.sector}
+                        </p>
+                        <h5 className="font-medium text-lg mb-3 text-gray-800 dark:text-gray-200">Key Responsibilities:</h5>
+                        <ul className="space-y-2">
+                          {job.projects.responsibilities.map((resp, respIndex) => (
+                            <li
+                              key={respIndex}
+                              className="flex items-start gap-2 text-gray-600 dark:text-gray-300"
+                            >
+                              <span className="mt-1.5 h-1.5 w-1.5 rounded-full bg-blue-600 flex-shrink-0" />
+                              {resp}
+                            </li>
+                          ))}
+                        </ul>
+                      </div>
+                    </div>
+                  )}
+                </Card>
+              ))}
+            </div>
+          </section>
+
+          <section id="personal-projects" className="mb-16 pt-16">
+            <h2 className="text-2xl font-bold mb-8 bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+              Personal Projects
+            </h2>
+            <div className="grid md:grid-cols-2 gap-8">
+              {projects.map((project, index) => (
+                <Card
+                  key={index}
+                  className="p-6 bg-gray-50 dark:bg-gray-900 border border-gray-200 dark:border-gray-800 flex flex-col transform transition-all duration-300 hover:scale-[1.02] hover:shadow-xl"
+                >
+                  <div className="flex justify-between items-start mb-4">
+                    <h3 className="text-xl font-bold bg-gradient-to-r from-blue-600 to-purple-600 bg-clip-text text-transparent">
+                      {project.title}
+                    </h3>
+                    {project.inProgress && (
+                      <span className="text-yellow-500 flex items-center text-sm bg-yellow-100 dark:bg-yellow-900/20 px-3 py-1 rounded-full">
+                        <Clock className="h-4 w-4 mr-2" />
+                        In progress
+                      </span>
+                    )}
+                  </div>
+
+                  <div className="flex-grow mb-6">
+                    <p className="text-gray-600 dark:text-gray-300 leading-relaxed">
+                      {project.description}
+                    </p>
+                  </div>
+
+                  <div className="flex flex-wrap gap-2 mb-6">
+                    {project.technologies.map((tech, techIndex) => (
+                      <span
+                        key={techIndex}
+                        className="px-3 py-1 text-sm font-medium bg-blue-100 dark:bg-blue-900/20 text-blue-800 dark:text-blue-200 rounded-full transition-colors hover:bg-blue-200 dark:hover:bg-blue-800/30"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+
+                  <div className="flex justify-between items-center mt-auto pt-4 border-t border-gray-200 dark:border-gray-700">
+                    <span className="text-sm font-medium text-gray-500 dark:text-gray-400 flex items-center gap-2">
+                      <Globe className="h-4 w-4" />
+                      {project.sector}
                     </span>
-                    <div className="flex gap-2">
-                      <Link href={project.github} target="_blank" rel="noopener noreferrer">
-                        <Button variant="outline" size="sm" className="text-xs">
-                          <Github className="h-4 w-4 mr-1" />
-                          GitHub
-                        </Button>
-                      </Link>
+                    <div className="flex gap-3">
+                      {project.github && (
+                        <Link
+                          href={project.github}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray-600 hover:text-blue-600 dark:text-gray-400 dark:hover:text-blue-400 transition-colors"
+                        >
+                          <Github className="h-5 w-5" />
+                        </Link>
+                      )}
                       {project.web && (
-                        <Link href={project.web} target="_blank" rel="noopener noreferrer">
-                          <Button variant="outline" size="sm" className="text-xs">
-                            <Globe className="h-4 w-4 mr-1" />
-                            Web
-                          </Button>
+                        <Link
+                          href={project.web}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-gray-600 hover:text-purple-600 dark:text-gray-400 dark:hover:text-purple-400 transition-colors"
+                        >
+                          <Globe className="h-5 w-5" />
                         </Link>
                       )}
                     </div>

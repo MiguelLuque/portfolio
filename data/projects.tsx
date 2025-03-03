@@ -1,5 +1,14 @@
 const projects = [
     {
+        title: "Duelo Wordle",
+        description: "Una versión multijugador del popular juego Wordle, donde los jugadores pueden competir en tiempo real para adivinar la palabra. Incluye funcionalidades de juego en tiempo real, sistema de puntuación y modo multijugador.",
+        sector: "Gaming / Entretenimiento",
+        technologies: ["React", "JavaScript", "TailwindCSS", "Supabase", "Vercel", "Vite"],
+        github: "https://github.com/MiguelLuque/duelo-wordle",
+        web: "https://duelo-wordle.vercel.app/",
+        inProgress: false
+    },
+    {
         title: "Multi module java 17 template",
         description: "A multi module project template for java 17 with maven and spring boot. Designed for best practices and scalability using the hexagonal architecture.",
         sector: "Software Development",
