@@ -27,6 +27,15 @@ const projects = [
         inProgress: false
     },
     {
+        title: "Watchdog",
+        description: "Platform to help reunite lost pets with their owners in Spain. Features automatic matching between lost and found listings, real-time messaging between users, image upload, notifications, and a smart search with province/city filters.",
+        sector: "Social Good / Pets",
+        technologies: ["Next.js 16", "React 19", "TypeScript", "Supabase", "TailwindCSS", "shadcn/ui", "Zod"],
+        github: "https://github.com/MiguelLuque/watchdog",
+        web: "https://watchdog-beta.vercel.app/",
+        inProgress: true
+    },
+    {
         title: "Aimage",
         description: "An innovative tool for generating images from text prompts using AI. Leverages state-of-the-art image generation models to transform textual descriptions into visual content with customizable parameters and styles.",
         sector: "AI / Image Generation",
