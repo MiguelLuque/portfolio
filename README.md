@@ -1,36 +1,57 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+﻿# Miguel Luque Portfolio
+
+Professional portfolio for Miguel Luque, Team Lead / Senior Backend Engineer based in Seville, Spain.
+
+The site is designed to support three goals:
+
+- Position Miguel for senior backend, tech lead and product engineering opportunities.
+- Present freelance services around professional websites, MVPs, APIs, internal tools and AI workflow automation.
+- Build a technical personal brand around reliable backend systems, distributed architecture and practical AI-enabled product development.
+
+## Stack
+
+- Next.js App Router
+- TypeScript
+- Tailwind CSS
+- Vercel-ready static deployment
 
 ## Getting Started
 
-First, run the development server:
-
 ```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+npm.cmd install
+npm.cmd run dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Open http://localhost:3000.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Useful Commands
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+```bash
+npm.cmd run lint
+npm.cmd run build
+npm.cmd run start
+```
 
-## Learn More
+## Content Structure
 
-To learn more about Next.js, take a look at the following resources:
+Core content lives in `data/`:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+- `profile.ts`
+- `experience.ts`
+- `skills.ts`
+- `services.ts`
+- `projects.ts`
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+Reusable sections live in `components/sections/`.
 
-## Deploy on Vercel
+## CV
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+The downloadable CV is expected at:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+```text
+public/cv/miguel-luque-cv.pdf
+```
+
+## Deployment
+
+Deploy through the existing Vercel project connected to this repository. Keep the current production domain and replace the previous portfolio with this redesign.
