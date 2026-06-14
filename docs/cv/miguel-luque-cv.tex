@@ -1,0 +1,139 @@
+\documentclass[10pt,a4paper]{article}
+
+\usepackage[margin=1.05cm]{geometry}
+\usepackage[T1]{fontenc}
+\usepackage[utf8]{inputenc}
+\usepackage{lmodern}
+\usepackage[hidelinks]{hyperref}
+\usepackage{xcolor}
+\usepackage{titlesec}
+\usepackage{enumitem}
+\usepackage{tabularx}
+\usepackage{array}
+\usepackage{microtype}
+\usepackage{ragged2e}
+
+\definecolor{ink}{HTML}{111827}
+\definecolor{muted}{HTML}{4B5563}
+\definecolor{accent}{HTML}{0F766E}
+\definecolor{rule}{HTML}{D1D5DB}
+
+\pagestyle{empty}
+\setlength{\parindent}{0pt}
+\setlength{\parskip}{0pt}
+\renewcommand{\familydefault}{\sfdefault}
+\color{ink}
+
+\AtBeginDocument{\fontsize{9.15}{10.4}\selectfont}
+
+\titleformat{\section}
+  {\normalsize\bfseries\color{accent}}
+  {}
+  {0pt}
+  {}
+  [\vspace{-3pt}{\color{rule}\titlerule}]
+\titlespacing*{\section}{0pt}{5pt}{3pt}
+
+\newcommand{\cvheader}[5]{
+  {\fontsize{24}{26}\selectfont\bfseries #1}\\[-1pt]
+  {\normalsize\color{accent}\bfseries #2}\\[3pt]
+  {\footnotesize #3 \enspace | \enspace #4 \enspace | \enspace \href{mailto:#5}{#5}}\\[1pt]
+  {\footnotesize \href{https://linkedin.com/in/miguel-luque-munoz-software-developer}{linkedin.com/in/miguel-luque-munoz-software-developer}
+  \enspace | \enspace
+  \href{https://github.com/MiguelLuque}{github.com/MiguelLuque}
+  \enspace | \enspace
+  \href{https://portfolio-git-main-miguelluques-projects.vercel.app}{portfolio}}
+}
+
+\newcommand{\role}[4]{
+  \textbf{#1} \hfill {\small\color{muted} #2}\\
+  {\footnotesize #3 \hfill #4}
+}
+
+\newcommand{\stack}[1]{
+  {\footnotesize\color{muted}\textbf{Tech stack:} #1}
+}
+
+\setlist[itemize]{
+  leftmargin=11pt,
+  itemsep=1pt,
+  topsep=2pt,
+  parsep=0pt,
+  partopsep=0pt
+}
+
+\begin{document}
+
+\cvheader
+  {Miguel Luque Munoz}
+  {Team Lead / Senior Backend Engineer}
+  {Seville, Spain}
+  {+34 651 186 966}
+  {miguel.luque.97@gmail.com}
+
+\section{Professional Summary}
+Team Lead and Senior Backend Engineer with 6+ years of experience designing reliable backend systems, microservices and event-driven architectures. Specialized in Java, Spring Boot, Kafka, databases, CI/CD and cloud-native environments. Currently leading backend delivery for a global ecommerce invoicing and legal document generation platform supporting 500,000+ daily transactions worldwide. Strong production mindset, technical leadership, delivery ownership and practical interest in AI-enabled products and workflow automation.
+
+\section{Core Skills}
+\footnotesize
+\begin{tabularx}{\textwidth}{>{\bfseries\color{accent}}p{3.05cm} X}
+Architecture & Java 21, Spring Boot, Kafka, Microservices, Spring Cloud, JPA/Hibernate, JMS, AMQ, OpenAPI, DDD, Event-driven Architecture, SOLID, Clean Code \\
+Cloud \& DevOps & OpenShift, AWS, Docker, GitHub Actions, Jenkins, Bamboo, CI/CD \\
+Databases & DB2, PostgreSQL, MongoDB, OracleDB, MySQL, SQL Server \\
+Frontend \& Product & Next.js, React, TypeScript, Angular, Flutter, Tailwind CSS, Supabase \\
+AI \& Automation & n8n, GitHub Copilot, AI coding agents, LLM workflows, Embeddings, Semantic Search, RAG \\
+Delivery & JUnit, Mockito, technical analysis, code review, mentoring, team coordination, Scrum
+\end{tabularx}
+\normalsize
+
+\section{Professional Experience}
+
+\role{Minsait}{2024 - Present}{Team Lead / Senior Software Engineer | Client: Global Fashion Retail Company}{Seville, Spain}
+\begin{itemize}
+  \item Lead backend delivery for a global ecommerce invoicing and legal document generation platform supporting 500,000+ daily transactions worldwide.
+  \item Coordinate technical work within a development team, supporting teammates, reviewing solutions and maintaining delivery quality.
+  \item Design and develop scalable backend services for tickets, invoices and country-specific fiscal/legal document workflows across international markets.
+  \item Improve reliability, traceability and maintainability in a business-critical, high-volume transactional environment.
+\end{itemize}
+\stack{Java 21, Spring Boot, Kafka, DB2, PostgreSQL, MongoDB, JPA, OpenShift, GitHub Actions, Spring Cloud, JMS, AMQ, OpenAPI.}
+
+\vspace{3pt}
+\role{Minsait}{2022 - 2023}{Software Analyst | Client: Energy Sector}{Seville, Spain}
+\begin{itemize}
+  \item Developed microservices, orchestration workflows and batch processes for large-scale energy data management platforms.
+  \item Applied Domain-Driven Design and API-first practices to build maintainable backend integrations.
+  \item Managed CI/CD pipelines, deployments, server configuration, documentation and cloud-oriented delivery workflows.
+\end{itemize}
+\stack{Java 17, Spring Boot, Spring Batch, Scala, Spark, PostgreSQL, MongoDB, Docker, AWS, OpenAPI, Bamboo, Maven.}
+
+\vspace{3pt}
+\role{Accenture}{2021 - 2022}{Analyst Programmer | Client: Banking Sector}{Seville, Spain}
+\begin{itemize}
+  \item Built and maintained Spring Boot microservices and Angular applications for transactional banking systems.
+  \item Mentored junior developers and helped improve delivery quality across backend and frontend workstreams.
+\end{itemize}
+\stack{Java, Spring Boot, Spring Cloud, Angular 8/11, TypeScript, OracleDB, DB2, OpenShift, Redux, Jenkins.}
+
+\vspace{3pt}
+\role{Babel Sistemas de Informacion}{2019 - 2021}{Analyst Programmer | Multiple sectors}{Seville, Spain}
+\begin{itemize}
+  \item Delivered software solutions across banking, energy, telecom and tourism projects.
+  \item Developed REST APIs, maintained frontend applications and contributed to CI/CD pipeline development.
+\end{itemize}
+\stack{Java 8, J2EE, Spring Boot, Spring MVC, Hibernate, MySQL, SQL Server, OracleDB, Angular, Docker, Jenkins.}
+
+\section{Selected Projects}
+\textbf{Payload Pipeline Processor} \hfill {\footnotesize\color{muted} React, TypeScript, Tailwind CSS}\\
+Developer tool for decoding, decompressing, decrypting and extracting data from complex integration payloads.\\[2pt]
+\textbf{Watchdog} \hfill {\footnotesize\color{muted} Next.js, TypeScript, Supabase}\\
+In-progress platform for lost-and-found pet listings, matching, messaging and location-based discovery.
+
+\section{Education \& Certifications}
+\footnotesize
+\begin{tabularx}{\textwidth}{>{\bfseries\color{accent}}p{3.05cm} X}
+Education & Bachelor's in Software Engineering, University of Seville, Spain (2015 - 2019) \\
+Certifications & AWS Certified Solutions Architect - Associate; Certified Professional Scrum Master \\
+Languages & Spanish: Native; English: Professional working proficiency
+\end{tabularx}
+
+\end{document}
