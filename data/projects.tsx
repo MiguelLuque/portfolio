@@ -1,46 +1,67 @@
-﻿export const projects = [
+export const projects = [
   {
-    title: "Payload Pipeline Processor",
+    title: "Serenia",
     description:
-      "A developer tool for decoding, decompressing, decrypting and extracting data from complex integration payloads.",
+      "A beta web product currently deployed as a live product experiment.",
     problem:
-      "Helps backend and support teams inspect encoded messages, logs and event payloads faster during debugging.",
-    status: "Live",
-    stack: ["React", "TypeScript", "Tailwind CSS", "Vite", "Vercel"],
-    github: "https://github.com/MiguelLuque/Bille-traffit-audit",
-    demo: null,
+      "Explores how a focused, polished product experience can move from prototype to a real SaaS or consumer-facing product.",
+    next:
+      "Clarify positioning, onboarding and core use case before treating it as a flagship portfolio project.",
+    status: "Beta product",
+    stack: ["Next.js", "TypeScript", "Product Design", "Vercel"],
+    github: "https://github.com/MiguelLuque/serenia",
+    demo: "https://serenia-app.vercel.app",
   },
   {
     title: "Watchdog",
     description:
-      "A platform to help reunite lost pets with owners through listings, matching, messaging and smart search.",
+      "A functional beta platform to help reunite lost pets with owners through listings, matching and location-based discovery.",
     problem:
       "Turns fragmented lost-and-found posts into a structured workflow with location-based discovery.",
-    status: "In progress",
+    next:
+      "Polish the demo flow, improve trust signals and decide whether the product should target local communities, shelters or municipalities.",
+    status: "Beta demo",
     stack: ["Next.js", "React", "TypeScript", "Supabase", "Tailwind CSS"],
     github: "https://github.com/MiguelLuque/watchdog",
-    demo: "https://watchdog-beta.vercel.app/",
+    demo: "https://watchdog-beta.vercel.app",
+  },
+  {
+    title: "Wordle Versus",
+    description:
+      "A functional multiplayer-inspired word game that needs a visual refresh and product polish.",
+    problem:
+      "Shows game logic, interaction design and frontend delivery, but needs stronger presentation before being promoted heavily.",
+    next:
+      "Redesign the UI, tighten mobile behavior, improve game states and package it as a polished interactive side project.",
+    status: "Functional demo",
+    stack: ["Vite", "React", "TypeScript", "Game UX", "Vercel"],
+    github: "https://github.com/MiguelLuque/wordle",
+    demo: "https://duelo-wordle.vercel.app",
   },
   {
     title: "AI Invoice Assistant",
     description:
-      "Planned assistant for invoice analysis, document understanding and operational support workflows.",
+      "An AI assistant concept for invoice analysis, document understanding and operational support workflows.",
     problem:
-      "Explores how AI can help teams classify, search and reason over business documents.",
-    status: "Planned",
+      "Tests whether AI can help teams classify, search and reason over business documents in a useful, monetizable workflow.",
+    next:
+      "Audit the existing demo, define the buyer and validate whether this should become a B2B micro-SaaS or stay as a technical demo.",
+    status: "Under review",
     stack: ["Next.js", "Supabase", "Embeddings", "RAG", "LLMs"],
     github: null,
     demo: null,
   },
   {
-    title: "Next.js + Supabase SaaS Starter",
+    title: "LCA",
     description:
-      "Planned starter kit for authenticated SaaS products with database, storage and deployment basics.",
+      "A Flutter demo that should be reconsidered as a web-first SaaS product instead of staying only as a mobile prototype.",
     problem:
-      "Reduces repeated setup work when building MVPs and internal tools.",
-    status: "Planned",
-    stack: ["Next.js", "Supabase Auth", "PostgreSQL", "Storage", "Vercel"],
-    github: null,
+      "The current direction proves a concept, but the next valuable step is turning it into a clearer product model with web workflows.",
+    next:
+      "Define the SaaS scope, target user, core workflow and migration plan from Flutter demo to web platform.",
+    status: "SaaS candidate",
+    stack: ["Flutter", "Dart", "SaaS Planning", "Product Strategy"],
+    github: "https://github.com/MiguelLuque/LCA",
     demo: null,
   },
 ];

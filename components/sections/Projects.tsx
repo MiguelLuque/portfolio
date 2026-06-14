@@ -1,5 +1,5 @@
 ﻿import Link from "next/link";
-import { ExternalLink, Github } from "lucide-react";
+import { ArrowUpRight, ExternalLink, Github } from "lucide-react";
 import { SectionHeading } from "@/components/SectionHeading";
 import { projects } from "@/data/projects";
 
@@ -9,15 +9,15 @@ export function Projects() {
       <div className="mx-auto max-w-7xl">
         <SectionHeading
           eyebrow="Projects"
-          title="Side projects as product and automation practice."
-          description="A curated set of tools and planned products that connect backend thinking, product engineering and practical AI automation."
+          title="Product lab: shipped demos, beta products and SaaS candidates."
+          description="A curated view of products I am building, validating or preparing to redesign. Some are live betas, others are functional demos with clear next steps."
         />
-        <div className="mt-10 grid gap-4 md:grid-cols-2">
+        <div className="mt-10 grid gap-4 lg:grid-cols-2">
           {projects.map((project) => (
-            <article key={project.title} className="rounded-2xl border border-slate-800 bg-slate-900/45 p-6">
+            <article key={project.title} className="flex h-full flex-col rounded-2xl border border-slate-800 bg-slate-900/45 p-6">
               <div className="flex items-start justify-between gap-4">
                 <div>
-                  <p className="text-xs font-semibold uppercase tracking-[0.18em] text-emerald-300">{project.status}</p>
+                  <p className="inline-flex rounded-full border border-emerald-400/25 bg-emerald-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-emerald-200">{project.status}</p>
                   <h3 className="mt-3 text-xl font-semibold text-slate-50">{project.title}</h3>
                 </div>
                 <div className="flex gap-2">
@@ -27,11 +27,17 @@ export function Projects() {
               </div>
               <p className="mt-4 text-sm leading-7 text-slate-400">{project.description}</p>
               <p className="mt-3 text-sm leading-7 text-slate-500"><span className="text-slate-300">Problem:</span> {project.problem}</p>
+              <p className="mt-3 text-sm leading-7 text-slate-500"><span className="text-slate-300">Next:</span> {project.next}</p>
               <div className="mt-5 flex flex-wrap gap-2">
                 {project.stack.map((tech) => (
                   <span key={tech} className="rounded-full border border-slate-700 bg-slate-950 px-3 py-1 text-xs font-medium text-slate-300">{tech}</span>
                 ))}
               </div>
+              {project.demo ? (
+                <Link href={project.demo} target="_blank" rel="noreferrer" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-emerald-200 transition hover:text-emerald-100">
+                  View live demo <ArrowUpRight className="h-4 w-4" />
+                </Link>
+              ) : null}
             </article>
           ))}
         </div>
