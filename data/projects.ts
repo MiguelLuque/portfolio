@@ -1,5 +1,18 @@
 export const projects = [
   {
+    title: "One More Room",
+    description:
+      "A live cross-platform logic mystery game with generated cases, spatial clues, a server-authoritative Daily challenge and real-time competitive modes.",
+    problem:
+      "Turns complex deduction into an accessible game where every case has a verified unique solution and online results cannot be decided by the client.",
+    next:
+      "Expand the case catalogue, learn from Daily retention and prepare polished native releases for iOS and Android.",
+    status: "Live game",
+    stack: ["Expo", "React Native", "TypeScript", "Supabase", "PostgreSQL"],
+    github: null,
+    demo: "https://one-more-room.vercel.app",
+  },
+  {
     title: "Serenia",
     description:
       "A beta web product currently deployed as a live product experiment.",
