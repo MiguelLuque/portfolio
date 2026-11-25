@@ -2,8 +2,10 @@
 
 export function Footer() {
   return (
-    <footer className="border-t border-slate-800 px-5 py-8 text-center text-sm text-slate-600 sm:px-8">
-      <p>&copy; {new Date().getFullYear()} {profile.name}. Built with Next.js, TypeScript and Tailwind CSS.</p>
+    <footer className="bg-ink px-5 pb-10 text-paper/60 sm:px-8">
+      <div className="mx-auto max-w-page border-t border-paper/15 pt-6 text-sm">
+        © {new Date().getFullYear()} {profile.name}
+      </div>
     </footer>
   );
 }

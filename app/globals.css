@@ -3,23 +3,46 @@
 @tailwind utilities;
 
 :root {
-  color-scheme: dark;
-}
-
-* {
-  box-sizing: border-box;
+  color-scheme: light;
+  --paper: 242 244 243;
+  --surface: 255 255 255;
+  --ink: 20 33 61;
+  --muted: 85 96 110;
+  --rule: 211 218 221;
+  --tile: 30 86 160;
+  --albero: 217 154 43;
 }
 
 html {
   scroll-behavior: smooth;
+  scroll-padding-top: 5rem;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
 }
 
 body {
-  margin: 0;
-  background: #020617;
+  background: rgb(var(--paper));
+  color: rgb(var(--ink));
+  -webkit-font-smoothing: antialiased;
+  text-rendering: optimizeLegibility;
 }
 
 ::selection {
-  background: rgba(34, 211, 238, 0.28);
-  color: #f8fafc;
+  background: rgba(30, 86, 160, 0.18);
+}
+
+:focus-visible {
+  outline: 2px solid rgb(var(--tile));
+  outline-offset: 3px;
+  border-radius: 2px;
+}
+
+@layer components {
+  .link {
+    @apply font-medium text-tile underline decoration-tile/30 decoration-1 underline-offset-[5px] transition-colors hover:decoration-tile;
+  }
 }

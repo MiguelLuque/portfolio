@@ -1,80 +1,93 @@
-export const projects = [
+export type ProjectLink = { label: string; href: string };
+
+export type Project = {
+  slug: string;
+  title: string;
+  pitch: string;
+  status: string;
+  body: string[];
+  role: string;
+  stack: string;
+  links: ProjectLink[];
+  note?: string;
+  image: { src: string; alt: string; width: number; height: number };
+};
+
+export const projects: Project[] = [
   {
-    title: "One More Room",
-    description:
-      "A live cross-platform logic mystery game with generated cases, spatial clues, a server-authoritative Daily challenge and real-time competitive modes.",
-    problem:
-      "Turns complex deduction into an accessible game where every case has a verified unique solution and online results cannot be decided by the client.",
-    next:
-      "Expand the case catalogue, learn from Daily retention and prepare polished native releases for iOS and Android.",
-    status: "Live game",
-    stack: ["Expo", "React Native", "TypeScript", "Supabase", "PostgreSQL"],
-    github: null,
-    demo: "https://one-more-room.vercel.app",
+    slug: "serenia",
+    title: "Serenia",
+    pitch: "Conversational support for anxiety and low mood, with a clinician in the loop.",
+    status: "Private pilot in Spain",
+    body: [
+      "People talk to an AI assistant between therapy sessions. When it makes sense, it offers validated questionnaires such as PHQ-9 and GAD-7, and each session ends with a summary for their professional.",
+      "The model never scores anything: questionnaire results come from each instrument's fixed rules, every AI-drafted report waits for professional review, and high-risk messages are answered on the server without calling the model.",
+    ],
+    role: "Product, design and full-stack build: patient chat on durable workflows, clinician dashboard, row-level security tested against a real Postgres database.",
+    stack: "Next.js 16, React 19, Supabase, Vercel Workflow, AI SDK",
+    links: [
+      { label: "Website", href: "https://serenia-app.vercel.app" },
+      { label: "Source code", href: "https://github.com/MiguelLuque/serenia" },
+    ],
+    image: {
+      src: "/projects/serenia.jpg",
+      alt: "Serenia landing page: a calm headline next to an example conversation in which the assistant offers a short questionnaire.",
+      width: 1800,
+      height: 1125,
+    },
   },
   {
-    title: "Serenia",
-    description:
-      "A beta web product currently deployed as a live product experiment.",
-    problem:
-      "Explores how a focused, polished product experience can move from prototype to a real SaaS or consumer-facing product.",
-    next:
-      "Clarify positioning, onboarding and core use case before treating it as a flagship portfolio project.",
-    status: "Beta product",
-    stack: ["Next.js", "TypeScript", "Product Design", "Vercel"],
-    github: "https://github.com/MiguelLuque/serenia",
-    demo: "https://serenia-app.vercel.app",
+    slug: "aljarafe",
+    title: "Aljarafe+",
+    pitch: "What's on, the next bus and the weather for Seville and the towns of the Aljarafe, in one app.",
+    status: "Pilot for local councils",
+    body: [
+      "It brings together official open data: the Junta de Andalucía events calendar, CTAN bus timetables, Metro de Sevilla, and AEMET forecasts and weather warnings. When a source goes down, the app keeps showing the last good copy and says how old it is.",
+      "Events pass through an editorial panel before they are published. An agent drafts new listings; only the ones that pass deterministic checks publish on their own, and the rest wait for a person.",
+    ],
+    role: "Product, design and build: iOS, Android and web app from one codebase, data adapters, editorial panel and scheduled ingestion.",
+    stack: "Expo, React Native, MapLibre, Next.js, Supabase",
+    links: [],
+    note: "Not public yet. Demo on request.",
+    image: {
+      src: "/projects/aljarafe.jpg",
+      alt: "Aljarafe+ home screen for Mairena del Aljarafe: upcoming local events, current temperature, official weather warnings and bus departures.",
+      width: 1800,
+      height: 1125,
+    },
+  },
+  {
+    slug: "one-more-room",
+    title: "One More Room",
+    pitch: "A logic mystery game: place the suspects, work out the victim, accuse the killer.",
+    status: "Live",
+    body: [
+      "Every generated case is checked to have exactly one solution. The Daily case is validated on the server, so rankings can't be decided by the client, and there are 1v1 matchmaking and private rooms for friends.",
+    ],
+    role: "Game design, case generation and the multiplayer backend.",
+    stack: "Expo, React Native, TypeScript, Supabase, PostgreSQL",
+    links: [{ label: "Play", href: "https://one-more-room.vercel.app" }],
+    image: {
+      src: "/projects/one-more-room.jpg",
+      alt: "One More Room start screen with the case board and the Daily, Ranking, Classic, Versus and Party modes.",
+      width: 1800,
+      height: 1125,
+    },
+  },
+];
+
+export const experiments: { title: string; description: string; links: ProjectLink[] }[] = [
+  {
+    title: "Wordle Versus",
+    description: "Head-to-head Wordle for two players.",
+    links: [
+      { label: "Play", href: "https://duelo-wordle.vercel.app" },
+      { label: "Code", href: "https://github.com/MiguelLuque/wordle" },
+    ],
   },
   {
     title: "Watchdog",
-    description:
-      "A functional beta platform to help reunite lost pets with owners through listings, matching and location-based discovery.",
-    problem:
-      "Turns fragmented lost-and-found posts into a structured workflow with location-based discovery.",
-    next:
-      "Polish the demo flow, improve trust signals and decide whether the product should target local communities, shelters or municipalities.",
-    status: "Beta demo",
-    stack: ["Next.js", "React", "TypeScript", "Supabase", "Tailwind CSS"],
-    github: "https://github.com/MiguelLuque/watchdog",
-    demo: "https://watchdog-beta.vercel.app",
-  },
-  {
-    title: "Wordle Versus",
-    description:
-      "A functional multiplayer-inspired word game that needs a visual refresh and product polish.",
-    problem:
-      "Shows game logic, interaction design and frontend delivery, but needs stronger presentation before being promoted heavily.",
-    next:
-      "Redesign the UI, tighten mobile behavior, improve game states and package it as a polished interactive side project.",
-    status: "Functional demo",
-    stack: ["Vite", "React", "TypeScript", "Game UX", "Vercel"],
-    github: "https://github.com/MiguelLuque/wordle",
-    demo: "https://duelo-wordle.vercel.app",
-  },
-  {
-    title: "AI Invoice Assistant",
-    description:
-      "An AI assistant concept for invoice analysis, document understanding and operational support workflows.",
-    problem:
-      "Tests whether AI can help teams classify, search and reason over business documents in a useful, monetizable workflow.",
-    next:
-      "Audit the existing demo, define the buyer and validate whether this should become a B2B micro-SaaS or stay as a technical demo.",
-    status: "Under review",
-    stack: ["Next.js", "Supabase", "Embeddings", "RAG", "LLMs"],
-    github: null,
-    demo: null,
-  },
-  {
-    title: "LCA",
-    description:
-      "A Flutter demo that should be reconsidered as a web-first SaaS product instead of staying only as a mobile prototype.",
-    problem:
-      "The current direction proves a concept, but the next valuable step is turning it into a clearer product model with web workflows.",
-    next:
-      "Define the SaaS scope, target user, core workflow and migration plan from Flutter demo to web platform.",
-    status: "SaaS candidate",
-    stack: ["Flutter", "Dart", "SaaS Planning", "Product Strategy"],
-    github: "https://github.com/MiguelLuque/LCA",
-    demo: null,
+    description: "Lost and found listings for pets, with location-based search.",
+    links: [{ label: "Demo", href: "https://watchdog-beta.vercel.app" }],
   },
 ];

@@ -1,57 +1,29 @@
-﻿# Miguel Luque Portfolio
+# Miguel Luque · portfolio
 
-Professional portfolio for Miguel Luque, Team Lead / Senior Backend Engineer based in Seville, Spain.
-
-The site is designed to support three goals:
-
-- Position Miguel for senior backend, tech lead and product engineering opportunities.
-- Present freelance services around professional websites, MVPs, APIs, internal tools and AI workflow automation.
-- Build a technical personal brand around reliable backend systems, distributed architecture and practical AI-enabled product development.
+Personal site for Miguel Luque, Team Lead and Senior Backend Engineer in Seville. Live at https://miguelluque.vercel.app.
 
 ## Stack
 
-- Next.js App Router
-- TypeScript
-- Tailwind CSS
-- Vercel-ready static deployment
+Next.js 16 (App Router, fully static), React 19, TypeScript and Tailwind CSS 3. Typeface: Schibsted Grotesk via `next/font`.
 
-## Getting Started
+## Commands
 
 ```bash
-npm.cmd install
-npm.cmd run dev
+npm install
+npm run dev        # http://localhost:3000
+npm run lint
+npm run typecheck
+npm run build
 ```
 
-Open http://localhost:3000.
+## Content
 
-## Useful Commands
+Everything editable lives in `data/`:
 
-```bash
-npm.cmd run lint
-npm.cmd run build
-npm.cmd run start
-```
+- `profile.ts`: name, links, email and site URL.
+- `experience.ts`: roles, education and certifications.
+- `projects.ts`: featured products and smaller experiments. Screenshots go in `public/projects/` (1800 px wide JPG, 16:10).
 
-## Content Structure
+Design tokens (colours) are CSS variables in `app/globals.css`, exposed to Tailwind in `tailwind.config.ts`.
 
-Core content lives in `data/`:
-
-- `profile.ts`
-- `experience.ts`
-- `skills.ts`
-- `services.ts`
-- `projects.ts`
-
-Reusable sections live in `components/sections/`.
-
-## CV
-
-The downloadable CV is expected at:
-
-```text
-public/cv/miguel-luque-cv.pdf
-```
-
-## Deployment
-
-Deploy through the existing Vercel project connected to this repository. Keep the current production domain and replace the previous portfolio with this redesign.
+The CV sources are in `docs/cv/`; the published PDF is `public/cv/miguel-luque-cv.pdf`.

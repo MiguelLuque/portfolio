@@ -1,47 +1,96 @@
-﻿import Link from "next/link";
-import { ArrowUpRight, ExternalLink, Github } from "lucide-react";
-import { SectionHeading } from "@/components/SectionHeading";
-import { projects } from "@/data/projects";
+﻿import Image from "next/image";
+import { Section } from "@/components/Section";
+import { experiments, projects } from "@/data/projects";
 
 export function Projects() {
   return (
-    <section id="projects" className="border-t border-slate-800 px-5 py-20 sm:px-8">
-      <div className="mx-auto max-w-7xl">
-        <SectionHeading
-          eyebrow="Projects"
-          title="Product lab: shipped demos, beta products and SaaS candidates."
-          description="A curated view of products I am building, validating or preparing to redesign. Some are live betas, others are functional demos with clear next steps."
-        />
-        <div className="mt-10 grid gap-4 lg:grid-cols-2">
-          {projects.map((project) => (
-            <article key={project.title} className="flex h-full flex-col rounded-2xl border border-slate-800 bg-slate-900/45 p-6">
-              <div className="flex items-start justify-between gap-4">
+    <Section
+      id="products"
+      title="Products"
+      intro="Things I design, build and run myself, from the database to the copy."
+    >
+      <div className="space-y-24">
+        {projects.map((project, index) => (
+          <article key={project.slug} aria-labelledby={`${project.slug}-title`}>
+            <figure className="overflow-hidden rounded-xl border border-rule bg-surface">
+              <Image
+                src={project.image.src}
+                alt={project.image.alt}
+                width={project.image.width}
+                height={project.image.height}
+                sizes="(min-width: 1024px) 56rem, 100vw"
+                priority={index === 0}
+                className="h-auto w-full"
+              />
+            </figure>
+
+            <div className="mt-8 grid gap-8 md:grid-cols-[1fr_15rem] md:gap-12">
+              <div className="max-w-prose">
+                <p className="flex items-center gap-2 text-[0.95rem] text-muted">
+                  <span aria-hidden="true" className="h-2 w-2 rounded-full bg-albero" />
+                  {project.status}
+                </p>
+                <h3 id={`${project.slug}-title`} className="mt-2 text-3xl font-extrabold tracking-tight">
+                  {project.title}
+                </h3>
+                <p className="mt-2 text-lg font-medium leading-snug">{project.pitch}</p>
+                <div className="mt-5 space-y-4 leading-[1.65]">
+                  {project.body.map((paragraph) => (
+                    <p key={paragraph}>{paragraph}</p>
+                  ))}
+                </div>
+              </div>
+
+              <dl className="space-y-5 text-[0.95rem] leading-relaxed">
                 <div>
-                  <p className="inline-flex rounded-full border border-emerald-400/25 bg-emerald-400/10 px-3 py-1 text-xs font-semibold uppercase tracking-[0.16em] text-emerald-200">{project.status}</p>
-                  <h3 className="mt-3 text-xl font-semibold text-slate-50">{project.title}</h3>
+                  <dt className="text-muted">My part</dt>
+                  <dd className="mt-1">{project.role}</dd>
                 </div>
-                <div className="flex gap-2">
-                  {project.github ? <Link href={project.github} target="_blank" rel="noreferrer" className="rounded-md p-2 text-slate-500 transition hover:bg-slate-800 hover:text-slate-100" aria-label={`${project.title} GitHub`}><Github className="h-4 w-4" /></Link> : null}
-                  {project.demo ? <Link href={project.demo} target="_blank" rel="noreferrer" className="rounded-md p-2 text-slate-500 transition hover:bg-slate-800 hover:text-slate-100" aria-label={`${project.title} demo`}><ExternalLink className="h-4 w-4" /></Link> : null}
+                <div>
+                  <dt className="text-muted">Built with</dt>
+                  <dd className="mt-1">{project.stack}</dd>
                 </div>
-              </div>
-              <p className="mt-4 text-sm leading-7 text-slate-400">{project.description}</p>
-              <p className="mt-3 text-sm leading-7 text-slate-500"><span className="text-slate-300">Problem:</span> {project.problem}</p>
-              <p className="mt-3 text-sm leading-7 text-slate-500"><span className="text-slate-300">Next:</span> {project.next}</p>
-              <div className="mt-5 flex flex-wrap gap-2">
-                {project.stack.map((tech) => (
-                  <span key={tech} className="rounded-full border border-slate-700 bg-slate-950 px-3 py-1 text-xs font-medium text-slate-300">{tech}</span>
-                ))}
-              </div>
-              {project.demo ? (
-                <Link href={project.demo} target="_blank" rel="noreferrer" className="mt-6 inline-flex items-center gap-2 text-sm font-semibold text-emerald-200 transition hover:text-emerald-100">
-                  View live demo <ArrowUpRight className="h-4 w-4" />
-                </Link>
-              ) : null}
-            </article>
-          ))}
-        </div>
+                <div>
+                  <dt className="sr-only">Links</dt>
+                  <dd className="flex flex-wrap gap-x-5 gap-y-2">
+                    {project.links.map((link) => (
+                      <a
+                        key={link.href}
+                        href={link.href}
+                        className="link"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                      >
+                        {link.label}
+                      </a>
+                    ))}
+                    {project.note ? <span className="text-muted">{project.note}</span> : null}
+                  </dd>
+                </div>
+              </dl>
+            </div>
+          </article>
+        ))}
       </div>
-    </section>
+
+      <div className="mt-24 border-t border-rule pt-8">
+        <h3 className="text-lg font-bold tracking-tight">Smaller experiments</h3>
+        <ul className="mt-4 divide-y divide-rule">
+          {experiments.map((item) => (
+            <li key={item.title} className="flex flex-col gap-1 py-4 sm:flex-row sm:items-baseline sm:gap-6">
+              <span className="font-semibold sm:w-40">{item.title}</span>
+              <span className="flex-1 text-muted">{item.description}</span>
+              <span className="flex gap-5">
+                {item.links.map((link) => (
+                  <a key={link.href} href={link.href} className="link" target="_blank" rel="noopener noreferrer">
+                    {link.label}
+                  </a>
+                ))}
+              </span>
+            </li>
+          ))}
+        </ul>
+      </div>
+    </Section>
   );
 }
