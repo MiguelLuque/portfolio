@@ -3,18 +3,36 @@ import { ExternalLink } from "@/components/ExternalLink";
 import { Section } from "@/components/Section";
 import { experiments, projects, type Project } from "@/data/projects";
 
-function Screenshot({ project, desktopSizes }: { project: Project; desktopSizes: string }) {
-  const { image, mobileImage } = project;
+const frame = "h-auto w-full rounded-xl border border-rule bg-surface";
+
+function Screenshot({ project }: { project: Project }) {
+  const { image, mobileImage, secondImage } = project;
+  // Two images side by side share one height: each column is as wide as its aspect ratio.
+  const pair = secondImage
+    ? { gridTemplateColumns: `${image.width / image.height}fr ${secondImage.width / secondImage.height}fr` }
+    : undefined;
   return (
     <figure>
-      <Image
-        src={image.src}
-        alt={image.alt}
-        width={image.width}
-        height={image.height}
-        sizes={desktopSizes}
-        className={`h-auto w-full rounded-xl border border-rule bg-surface ${mobileImage ? "hidden sm:block" : project.compact ? "max-w-[18rem] md:max-w-none" : ""}`}
-      />
+      <div className={pair ? "hidden gap-4 sm:grid" : undefined} style={pair}>
+        <Image
+          src={image.src}
+          alt={image.alt}
+          width={image.width}
+          height={image.height}
+          sizes={pair ? "(min-width: 1024px) 34rem, 60vw" : "(min-width: 1024px) 56rem, 100vw"}
+          className={`${frame} ${mobileImage && !pair ? "hidden sm:block" : ""}`}
+        />
+        {secondImage ? (
+          <Image
+            src={secondImage.src}
+            alt={secondImage.alt}
+            width={secondImage.width}
+            height={secondImage.height}
+            sizes="(min-width: 1024px) 22rem, 40vw"
+            className={frame}
+          />
+        ) : null}
+      </div>
       {mobileImage ? (
         <Image
           src={mobileImage.src}
@@ -22,7 +40,7 @@ function Screenshot({ project, desktopSizes }: { project: Project; desktopSizes:
           width={mobileImage.width}
           height={mobileImage.height}
           sizes="18rem"
-          className="h-auto w-full max-w-[18rem] rounded-xl border border-rule bg-surface sm:hidden"
+          className={`${frame} max-w-[18rem] sm:hidden`}
         />
       ) : null}
     </figure>
@@ -55,13 +73,13 @@ function Details({ project }: { project: Project }) {
   );
 }
 
-function Intro({ project, size }: { project: Project; size: "lg" | "md" }) {
+function Intro({ project }: { project: Project }) {
   return (
     <>
       <p className="text-[0.95rem] text-muted">{project.status}</p>
       <h3
         id={`${project.slug}-title`}
-        className={`mt-1 scroll-mt-24 font-extrabold tracking-tight ${size === "lg" ? "text-3xl" : "text-2xl"}`}
+        className="mt-1 scroll-mt-24 text-3xl font-extrabold tracking-tight"
       >
         {project.title}
       </h3>
@@ -83,33 +101,17 @@ export function Projects() {
       intro="Things I design, build and run myself, from the database to the copy."
     >
       <div className="space-y-20">
-        {projects.map((project) =>
-          project.compact ? (
-            <article
-              key={project.slug}
-              aria-labelledby={`${project.slug}-title`}
-              className="grid gap-8 border-t border-rule pt-12 md:grid-cols-[20rem_1fr] md:gap-10"
-            >
-              <Screenshot project={project} desktopSizes="20rem" />
+        {projects.map((project) => (
+          <article key={project.slug} aria-labelledby={`${project.slug}-title`}>
+            <Screenshot project={project} />
+            <div className="mt-8 grid gap-8 md:grid-cols-[1fr_15rem] md:gap-12">
               <div className="max-w-prose">
-                <Intro project={project} size="md" />
-                <div className="mt-6">
-                  <Details project={project} />
-                </div>
+                <Intro project={project} />
               </div>
-            </article>
-          ) : (
-            <article key={project.slug} aria-labelledby={`${project.slug}-title`}>
-              <Screenshot project={project} desktopSizes="(min-width: 1024px) 56rem, 100vw" />
-              <div className="mt-8 grid gap-8 md:grid-cols-[1fr_15rem] md:gap-12">
-                <div className="max-w-prose">
-                  <Intro project={project} size="lg" />
-                </div>
-                <Details project={project} />
-              </div>
-            </article>
-          ),
-        )}
+              <Details project={project} />
+            </div>
+          </article>
+        ))}
       </div>
 
       <div className="mt-20 border-t border-rule pt-8">

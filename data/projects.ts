@@ -1,5 +1,7 @@
 export type ProjectLink = { label: string; href: string };
 
+type ProjectImage = { src: string; alt: string; width: number; height: number };
+
 export type Project = {
   slug: string;
   title: string;
@@ -10,9 +12,10 @@ export type Project = {
   stack: string;
   links: ProjectLink[];
   note?: string;
-  compact?: boolean;
   mobileImage?: { src: string; width: number; height: number };
-  image: { src: string; alt: string; width: number; height: number };
+  image: ProjectImage;
+  /** Shown beside the main screenshot from the sm breakpoint up. */
+  secondImage?: ProjectImage;
 };
 
 export const projects: Project[] = [
@@ -71,8 +74,14 @@ export const projects: Project[] = [
     role: "Game design, case generation and the multiplayer backend.",
     stack: "Expo, React Native, TypeScript, Supabase, PostgreSQL",
     links: [{ label: "Play", href: "https://one-more-room.vercel.app" }],
-    compact: true,
     image: {
+      src: "/projects/one-more-room.jpg",
+      alt: "One More Room start screen with the case board and the Daily, Ranking, Classic and Versus modes.",
+      width: 1400,
+      height: 885,
+    },
+    mobileImage: { src: "/projects/one-more-room-mobile.jpg", width: 780, height: 1300 },
+    secondImage: {
       src: "/projects/one-more-room-board.jpg",
       alt: "A One More Room case in progress: a house plan with a kitchen, terrace, guest room and garage, furnished tile by tile.",
       width: 1000,
