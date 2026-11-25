@@ -26,4 +26,4 @@ Everything editable lives in `data/`:
 
 Design tokens (colours) are CSS variables in `app/globals.css`, exposed to Tailwind in `tailwind.config.ts`.
 
-The CV sources are in `docs/cv/`; the published PDF is `public/cv/miguel-luque-cv.pdf`.
+The downloadable CV is `public/cv/miguel-luque-cv.pdf`; replace that file to update it.

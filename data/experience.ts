@@ -10,7 +10,7 @@
       "Plan and coordinate delivery, review designs and code, and support the people on the team.",
       "Improve reliability, traceability and performance of the fiscal document workflows.",
     ],
-    stack: "Java 21, Spring Boot, Kafka, DB2, PostgreSQL, MongoDB, OpenShift, GitHub Actions",
+    stack: "Java 21, Spring Boot, Kafka, DB2, PostgreSQL, MongoDB, OpenShift, Grafana, GitHub Actions",
   },
   {
     period: "2022 – 2023",
@@ -45,6 +45,6 @@
 
 export const credentials = [
   { label: "Education", value: "Software Engineering degree, University of Seville, 2015–2019" },
-  { label: "Certifications", value: "AWS Certified Solutions Architect – Associate; Certified Professional Scrum Master" },
-  { label: "Languages", value: "Spanish and English" },
+  { label: "Certifications", value: "Certified Professional Scrum Master" },
+  { label: "Languages", value: "Spanish (native), English (professional working proficiency)" },
 ];

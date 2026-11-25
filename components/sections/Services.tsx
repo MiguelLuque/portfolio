@@ -21,7 +21,7 @@ const offers = [
 const toolbox = [
   { area: "Backend", tools: "Java 21, Spring Boot, Spring Cloud, Kafka, JMS/AMQ, JPA/Hibernate, OpenAPI, DDD" },
   { area: "Data", tools: "PostgreSQL, DB2, MongoDB, Oracle, MySQL, SQL Server, Supabase" },
-  { area: "Platform", tools: "OpenShift, Docker, AWS, GitHub Actions, Jenkins, Vercel" },
+  { area: "Platform", tools: "OpenShift, Docker, AWS, Grafana, GitHub Actions, Jenkins, Vercel" },
   { area: "Product", tools: "Next.js, React, React Native, Expo, TypeScript, Tailwind CSS, Angular" },
   { area: "AI", tools: "AI SDK, LLM workflows, embeddings, RAG, n8n, coding agents" },
 ];
