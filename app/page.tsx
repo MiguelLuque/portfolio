@@ -5,25 +5,14 @@ import { Experience } from "@/components/sections/Experience";
 import { Hero } from "@/components/sections/Hero";
 import { Projects } from "@/components/sections/Projects";
 import { Services } from "@/components/sections/Services";
-import { profile } from "@/data/profile";
-
-const personJsonLd = {
-  "@context": "https://schema.org",
-  "@type": "Person",
-  name: profile.name,
-  jobTitle: "Team Lead / Senior Backend Engineer",
-  worksFor: { "@type": "Organization", name: "Minsait" },
-  address: { "@type": "PostalAddress", addressLocality: "Seville", addressCountry: "ES" },
-  url: profile.siteUrl,
-  sameAs: [profile.github, profile.linkedin],
-};
+import { homeJsonLd, toJsonLdScript } from "@/lib/structured-data";
 
 export default function Home() {
   return (
     <>
       <script
         type="application/ld+json"
-        dangerouslySetInnerHTML={{ __html: JSON.stringify(personJsonLd) }}
+        dangerouslySetInnerHTML={{ __html: toJsonLdScript(homeJsonLd(new Date().toISOString().slice(0, 10))) }}
       />
       <a
         href="#main"

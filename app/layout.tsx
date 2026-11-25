@@ -9,23 +9,38 @@ const sans = Schibsted_Grotesk({
   display: "swap",
 });
 
+const title = `${profile.displayName}: Senior Backend Engineer and Team Lead, Seville`;
 const description =
-  "Team Lead and Senior Backend Engineer in Seville. Java, Kafka and high-volume invoicing systems at work; AI products with a human in the loop on my own time.";
+  "Senior Backend Engineer and Team Lead in Seville, Spain. Java, Spring Boot and Kafka for high-volume invoicing. Open to backend lead roles and freelance work.";
 
 export const metadata: Metadata = {
   metadataBase: new URL(profile.siteUrl),
-  title: `${profile.displayName}, Team Lead and Senior Backend Engineer`,
+  title,
   description,
+  applicationName: profile.displayName,
+  authors: [{ name: profile.name, url: profile.siteUrl }],
+  creator: profile.name,
+  category: "technology",
   alternates: { canonical: "/" },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: { index: true, follow: true, "max-image-preview": "large", "max-snippet": -1 },
+  },
   openGraph: {
-    title: `${profile.displayName}, Team Lead and Senior Backend Engineer`,
+    title,
     description,
     url: "/",
     siteName: profile.displayName,
     locale: "en_GB",
-    type: "website",
+    type: "profile",
+    firstName: "Miguel",
+    lastName: "Luque Muñoz",
+    username: "MiguelLuque",
   },
-  twitter: { card: "summary_large_image" },
+  twitter: { card: "summary_large_image", title, description },
+  // Set GOOGLE_SITE_VERIFICATION in Vercel to verify the site in Google Search Console.
+  verification: process.env.GOOGLE_SITE_VERIFICATION ? { google: process.env.GOOGLE_SITE_VERIFICATION } : undefined,
 };
 
 export const viewport: Viewport = {
