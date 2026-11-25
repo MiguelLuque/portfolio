@@ -1,4 +1,4 @@
-﻿import { Section } from "@/components/Section";
+import { Section } from "@/components/Section";
 import { credentials, experience } from "@/data/experience";
 
 export function Experience() {
@@ -6,14 +6,14 @@ export function Experience() {
     <Section
       id="work"
       title="Work"
-      intro="Seven years on backend systems for retail, energy and banking, the last two leading a team."
+      intro="Backend systems for retail, energy and banking."
     >
-      <ol className="space-y-12">
-        {experience.map((job) => (
+      <ol className="space-y-10">
+        {experience.map((job, index) => (
           <li key={`${job.company}-${job.period}`} className="grid gap-2 sm:grid-cols-[8.5rem_1fr] sm:gap-8">
             <p className="pt-1 text-[0.95rem] tabular-nums text-muted">{job.period}</p>
             <div className="max-w-prose">
-              <h3 className="text-xl font-bold tracking-tight">{job.role}</h3>
+              <h3 className={`font-bold tracking-tight ${index < 2 ? "text-xl" : "text-lg"}`}>{job.role}</h3>
               <p className="mt-1 text-[0.95rem] text-muted">
                 {job.company}, {job.context}
               </p>

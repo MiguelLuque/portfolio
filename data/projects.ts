@@ -10,6 +10,8 @@ export type Project = {
   stack: string;
   links: ProjectLink[];
   note?: string;
+  compact?: boolean;
+  mobileImage?: { src: string; width: number; height: number };
   image: { src: string; alt: string; width: number; height: number };
 };
 
@@ -20,10 +22,10 @@ export const projects: Project[] = [
     pitch: "Conversational support for anxiety and low mood, with a clinician in the loop.",
     status: "Private pilot in Spain",
     body: [
-      "People talk to an AI assistant between therapy sessions. When it makes sense, it offers validated questionnaires such as PHQ-9 and GAD-7, and each session ends with a summary for their professional.",
+      "People talk to an AI assistant between therapy sessions. It can offer validated questionnaires such as PHQ-9 and GAD-7, and each session ends with a summary for their professional.",
       "The model never scores anything: questionnaire results come from each instrument's fixed rules, every AI-drafted report waits for professional review, and high-risk messages are answered on the server without calling the model.",
     ],
-    role: "Product, design and full-stack build: patient chat on durable workflows, clinician dashboard, row-level security tested against a real Postgres database.",
+    role: "Product, design and full-stack build: the patient chat, the clinician dashboard and the access rules that keep each patient's data private.",
     stack: "Next.js 16, React 19, Supabase, Vercel Workflow, AI SDK",
     links: [
       { label: "Website", href: "https://serenia-app.vercel.app" },
@@ -35,6 +37,7 @@ export const projects: Project[] = [
       width: 1800,
       height: 1125,
     },
+    mobileImage: { src: "/projects/serenia-mobile.jpg", width: 780, height: 1400 },
   },
   {
     slug: "aljarafe",
@@ -43,7 +46,7 @@ export const projects: Project[] = [
     status: "Pilot for local councils",
     body: [
       "It brings together official open data: the Junta de Andalucía events calendar, CTAN bus timetables, Metro de Sevilla, and AEMET forecasts and weather warnings. When a source goes down, the app keeps showing the last good copy and says how old it is.",
-      "Events pass through an editorial panel before they are published. An agent drafts new listings; only the ones that pass deterministic checks publish on their own, and the rest wait for a person.",
+      "Events pass through an editorial panel before they are published. An agent drafts new listings; only those that pass fixed checks are published automatically, and the rest wait for a person.",
     ],
     role: "Product, design and build: iOS, Android and web app from one codebase, data adapters, editorial panel and scheduled ingestion.",
     stack: "Expo, React Native, MapLibre, Next.js, Supabase",
@@ -55,6 +58,7 @@ export const projects: Project[] = [
       width: 1800,
       height: 1125,
     },
+    mobileImage: { src: "/projects/aljarafe-mobile.jpg", width: 1040, height: 1300 },
   },
   {
     slug: "one-more-room",
@@ -62,17 +66,19 @@ export const projects: Project[] = [
     pitch: "A logic mystery game: place the suspects, work out the victim, accuse the killer.",
     status: "Live",
     body: [
-      "Every generated case is checked to have exactly one solution. The Daily case is validated on the server, so rankings can't be decided by the client, and there are 1v1 matchmaking and private rooms for friends.",
+      "Every generated case is checked to have exactly one solution. The Daily case is checked on the server, so rankings can't be faked, and there are 1v1 matchmaking and private rooms for friends.",
     ],
     role: "Game design, case generation and the multiplayer backend.",
     stack: "Expo, React Native, TypeScript, Supabase, PostgreSQL",
     links: [{ label: "Play", href: "https://one-more-room.vercel.app" }],
+    compact: true,
     image: {
       src: "/projects/one-more-room.jpg",
-      alt: "One More Room start screen with the case board and the Daily, Ranking, Classic, Versus and Party modes.",
-      width: 1800,
-      height: 1125,
+      alt: "One More Room start screen with the case board and the Daily, Ranking, Classic and Versus modes.",
+      width: 1400,
+      height: 885,
     },
+    mobileImage: { src: "/projects/one-more-room-mobile.jpg", width: 780, height: 1300 },
   },
 ];
 

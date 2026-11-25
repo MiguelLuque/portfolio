@@ -1,4 +1,4 @@
-﻿import "./globals.css";
+import "./globals.css";
 import type { Metadata, Viewport } from "next";
 import { Schibsted_Grotesk } from "next/font/google";
 import { profile } from "@/data/profile";

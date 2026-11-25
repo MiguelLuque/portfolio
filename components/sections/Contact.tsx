@@ -1,4 +1,5 @@
-﻿import { profile } from "@/data/profile";
+import { ExternalLink } from "@/components/ExternalLink";
+import { profile } from "@/data/profile";
 
 export function Contact() {
   return (
@@ -12,25 +13,25 @@ export function Contact() {
         </p>
         <a
           href={`mailto:${profile.email}`}
-          className="mt-10 inline-block break-all text-[clamp(1.25rem,3.4vw,2.25rem)] font-bold underline decoration-albero decoration-2 underline-offset-8 transition-colors hover:text-albero"
+          className="mt-10 inline-block [overflow-wrap:anywhere] text-[clamp(1.25rem,3.4vw,2.25rem)] font-bold underline decoration-albero decoration-2 underline-offset-8 transition-colors hover:text-albero"
         >
           {profile.email}
         </a>
         <ul className="mt-10 flex flex-wrap gap-x-8 gap-y-3 text-base">
           <li>
-            <a href={profile.cvPath} className="underline decoration-paper/30 underline-offset-[5px] hover:decoration-paper">
+            <a href={profile.cvPath} download className="underline decoration-paper/30 underline-offset-[5px] hover:decoration-paper">
               Download CV (PDF)
             </a>
           </li>
           <li>
-            <a href={profile.linkedin} target="_blank" rel="noopener noreferrer" className="underline decoration-paper/30 underline-offset-[5px] hover:decoration-paper">
+            <ExternalLink href={profile.linkedin} className="underline decoration-paper/30 underline-offset-[5px] hover:decoration-paper">
               LinkedIn
-            </a>
+            </ExternalLink>
           </li>
           <li>
-            <a href={profile.github} target="_blank" rel="noopener noreferrer" className="underline decoration-paper/30 underline-offset-[5px] hover:decoration-paper">
+            <ExternalLink href={profile.github} className="underline decoration-paper/30 underline-offset-[5px] hover:decoration-paper">
               GitHub
-            </a>
+            </ExternalLink>
           </li>
         </ul>
       </div>

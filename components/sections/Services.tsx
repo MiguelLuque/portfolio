@@ -4,12 +4,12 @@ const offers = [
   {
     title: "Backend and integrations",
     description:
-      "APIs, event-driven services and integrations that have to keep working under load. Java, Spring Boot, Kafka and the operational habits that come with them.",
+      "APIs, event-driven services and integrations that have to keep working under load. Java, Spring Boot, Kafka.",
   },
   {
     title: "From idea to a working pilot",
     description:
-      "A product people can actually use, with auth, data and deployment in place, built on Next.js or Expo with Supabase. Serenia and Aljarafe+ started this way.",
+      "A usable product with sign-in, data and deployment in place, built on Next.js or Expo with Supabase. Serenia and Aljarafe+ started this way.",
   },
   {
     title: "Automation with AI",
@@ -19,19 +19,17 @@ const offers = [
 ];
 
 const toolbox = [
-  { area: "Backend", tools: "Java 21, Spring Boot, Spring Cloud, Kafka, JMS/AMQ, JPA/Hibernate, OpenAPI, DDD" },
-  { area: "Data", tools: "PostgreSQL, DB2, MongoDB, Oracle, MySQL, SQL Server, Supabase" },
-  { area: "Platform", tools: "OpenShift, Docker, AWS, Grafana, GitHub Actions, Jenkins, Vercel" },
-  { area: "Product", tools: "Next.js, React, React Native, Expo, TypeScript, Tailwind CSS, Angular" },
-  { area: "AI", tools: "AI SDK, LLM workflows, embeddings, RAG, n8n, coding agents" },
+  { area: "Backend", tools: "Java 21, Spring Boot, Kafka, JMS/AMQ, JPA/Hibernate, OpenAPI" },
+  { area: "Data and platform", tools: "PostgreSQL, DB2, MongoDB, OpenShift, Docker, Grafana, GitHub Actions" },
+  { area: "Product and AI", tools: "Next.js, React, Expo, TypeScript, Supabase, AI SDK, n8n" },
 ];
 
 export function Services() {
   return (
     <Section
       id="services"
-      title="How I can help"
-      intro="Alongside my full-time role I take on a small number of freelance projects."
+      title="Freelance"
+      intro="I take on occasional freelance projects."
     >
       <div className="grid gap-10 md:grid-cols-3 md:gap-8">
         {offers.map((offer) => (
@@ -45,7 +43,7 @@ export function Services() {
       <h3 className="mt-16 text-lg font-bold tracking-tight">Toolbox</h3>
       <dl className="mt-4 divide-y divide-rule border-y border-rule">
         {toolbox.map((row) => (
-          <div key={row.area} className="grid gap-1 py-3 sm:grid-cols-[8.5rem_1fr] sm:gap-8">
+          <div key={row.area} className="grid gap-1 py-3 sm:grid-cols-[11rem_1fr] sm:gap-8">
             <dt className="font-semibold">{row.area}</dt>
             <dd className="text-muted">{row.tools}</dd>
           </div>

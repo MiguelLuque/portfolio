@@ -1,4 +1,4 @@
-﻿export const experience = [
+export const experience = [
   {
     period: "2024 – now",
     role: "Team Lead / Senior Software Engineer",
@@ -7,8 +7,8 @@
     summary:
       "I lead the team behind the platform that issues tickets, invoices and country-specific legal documents for the retailer's online sales, across many markets and more than 500,000 transactions a day.",
     highlights: [
-      "Plan and coordinate delivery, review designs and code, and support the people on the team.",
-      "Improve reliability, traceability and performance of the fiscal document workflows.",
+      "Design and build Java 21 and Spring Boot services and Kafka workflows for tickets, invoices and country-specific fiscal documents.",
+      "Own delivery from requirements to production: coordinating the work, reviewing solutions and monitoring production with Grafana.",
     ],
     stack: "Java 21, Spring Boot, Kafka, DB2, PostgreSQL, MongoDB, OpenShift, Grafana, GitHub Actions",
   },

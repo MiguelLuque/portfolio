@@ -1,4 +1,4 @@
-﻿export const profile = {
+export const profile = {
   name: "Miguel Luque Muñoz",
   displayName: "Miguel Luque",
   location: "Seville, Spain",
