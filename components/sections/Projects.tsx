@@ -13,7 +13,7 @@ function Screenshot({ project, desktopSizes }: { project: Project; desktopSizes:
         width={image.width}
         height={image.height}
         sizes={desktopSizes}
-        className={`h-auto w-full rounded-xl border border-rule bg-surface ${mobileImage ? "hidden sm:block" : ""}`}
+        className={`h-auto w-full rounded-xl border border-rule bg-surface ${mobileImage ? "hidden sm:block" : project.compact ? "max-w-[18rem] md:max-w-none" : ""}`}
       />
       {mobileImage ? (
         <Image
@@ -88,9 +88,9 @@ export function Projects() {
             <article
               key={project.slug}
               aria-labelledby={`${project.slug}-title`}
-              className="grid gap-8 border-t border-rule pt-12 md:grid-cols-[24rem_1fr] md:gap-10"
+              className="grid gap-8 border-t border-rule pt-12 md:grid-cols-[20rem_1fr] md:gap-10"
             >
-              <Screenshot project={project} desktopSizes="24rem" />
+              <Screenshot project={project} desktopSizes="20rem" />
               <div className="max-w-prose">
                 <Intro project={project} size="md" />
                 <div className="mt-6">

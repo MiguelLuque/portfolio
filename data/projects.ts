@@ -73,12 +73,11 @@ export const projects: Project[] = [
     links: [{ label: "Play", href: "https://one-more-room.vercel.app" }],
     compact: true,
     image: {
-      src: "/projects/one-more-room.jpg",
-      alt: "One More Room start screen with the case board and the Daily, Ranking, Classic and Versus modes.",
-      width: 1400,
-      height: 885,
+      src: "/projects/one-more-room-board.jpg",
+      alt: "A One More Room case in progress: a house plan with a kitchen, terrace, guest room and garage, furnished tile by tile.",
+      width: 1000,
+      height: 992,
     },
-    mobileImage: { src: "/projects/one-more-room-mobile.jpg", width: 780, height: 1300 },
   },
 ];
 
