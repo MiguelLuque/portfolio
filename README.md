@@ -22,8 +22,8 @@ Everything editable lives in `data/`:
 
 - `profile.ts`: name, links, email and site URL.
 - `experience.ts`: roles, education and certifications.
-- `projects.ts`: featured products and smaller experiments. Screenshots go in `public/projects/` (1800 px wide JPG, 16:10).
+- `projects.ts`: featured products and smaller experiments. Screenshots go in `public/projects/` (1800×1125 JPG, plus a portrait mobile version).
 
-Design tokens (colours) are CSS variables in `app/globals.css`, exposed to Tailwind in `tailwind.config.ts`.
+Design rules, tokens, writing style and how to add a product are in [AGENTS.md](AGENTS.md); follow it for any change, by hand or by an agent.
 
 The downloadable CV is `public/cv/miguel-luque-cv.pdf`; replace that file to update it.

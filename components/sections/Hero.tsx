@@ -11,6 +11,7 @@ const facts = [
 const products = [
   { href: "#serenia-title", name: "Serenia", what: "AI support for anxiety with clinician review" },
   { href: "#aljarafe-title", name: "Aljarafe+", what: "a civic app for Seville and the Aljarafe towns" },
+  { href: "#pokeplus-title", name: "PokePlus", what: "a team-preview assistant for competitive Pokémon" },
   { href: "#one-more-room-title", name: "One More Room", what: "a live logic game" },
 ];
 

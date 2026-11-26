@@ -64,6 +64,29 @@ export const projects: Project[] = [
     mobileImage: { src: "/projects/aljarafe-mobile.jpg", width: 1040, height: 1300 },
   },
   {
+    slug: "pokeplus",
+    title: "PokePlus",
+    pitch: "A team-preview assistant for competitive Pokémon Champions doubles: read the rival's six from a screenshot and choose your four.",
+    status: "Live, in Spanish",
+    body: [
+      "At team preview the game shows only the rival's sprites, type icons and gender, so the app finds each card in the screenshot and matches it against the game's own sprite atlas. Recognition runs in the browser and the image is never uploaded.",
+      "It then suggests which four to bring and which two to lead with, and predicts the rival's lead. The suggestion weighs damage against each rival's most-used sets, speed, roles like Fake Out or Trick Room, and real usage from Smogon ladder and Bo3 games, refreshed every month.",
+    ],
+    role: "Product, design and build: screenshot recognition, the lead prediction, the damage and usage views and the monthly data job.",
+    stack: "React, TypeScript, Vite, Smogon damage calc, Vitest",
+    links: [
+      { label: "Open the app", href: "https://pokeplus.vercel.app" },
+      { label: "Source code", href: "https://github.com/MiguelLuque/pokeplus" },
+    ],
+    image: {
+      src: "/projects/pokeplus.jpg",
+      alt: "PokePlus after reading a team-preview screenshot: the four Pokémon to bring with their items, the two to lead with, and the rival's three most likely leads with percentages.",
+      width: 1800,
+      height: 1125,
+    },
+    mobileImage: { src: "/projects/pokeplus-mobile.jpg", width: 780, height: 1400 },
+  },
+  {
     slug: "one-more-room",
     title: "One More Room",
     pitch: "A logic mystery game: place the suspects, work out the victim, accuse the killer.",
